@@ -11,7 +11,10 @@ export default function App() {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+//*-------прописуємо вибір 1 з 3 вар---------------
+
   const leaveFeedback = e => {
+
     switch (e) {
       case 'good':
         setGood(prevState => prevState + 1);
@@ -22,16 +25,22 @@ export default function App() {
       case 'neutral':
         setNeutral(prevState => prevState + 1);
         break;
+      
       default:
         return;
     }
   };
+
+//*-----формула підрахунку, вивід % ----------
 
   const countTotalFeedback = () => good + neutral + bad;
 
   const countPositiveFeedbackPercentage = () =>
     Math.round((good * 100) / countTotalFeedback());
 
+  
+  //*-----------render----------
+  
   return (
     <Layout>
       <Section title="Please leave feedback">
